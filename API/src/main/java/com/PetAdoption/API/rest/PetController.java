@@ -1,0 +1,43 @@
+package com.PetAdoption.API.rest;
+
+import com.PetAdoption.API.dao.Pet;
+import com.PetAdoption.API.service.PetService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("pet")
+public class PetController {
+    @Autowired
+    PetService petService;
+
+    @GetMapping
+    List<Pet> getAllPets(){
+        return petService.getAllPets();
+    }
+
+    @PostMapping
+    Pet createPet(@RequestBody Pet pet){
+        return petService.createPet(pet);
+    }
+
+    @PutMapping
+    Pet updatePet(@RequestBody Pet pet){
+        return petService.updatePet(pet);
+    }
+
+    @GetMapping("/{id}")
+    Optional<Pet> getPet(@PathVariable("id") Long id){
+        return petService.getPetById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    void deletePet(@PathVariable("id") Long id){
+        petService.deletePetById(id);
+    }
+
+
+}
