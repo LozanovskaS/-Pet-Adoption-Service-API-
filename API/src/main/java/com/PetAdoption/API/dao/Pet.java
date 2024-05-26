@@ -21,13 +21,6 @@ public class Pet {
     private String description;
     private String status;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "UTC")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
 
     @OneToMany
     private List<AdoptionApplication> adoptionApplications;
@@ -39,11 +32,10 @@ public class Pet {
     private List<Comment> comments;
 
     public Pet() {
-        this.createdAt = new Date();
-        this.updatedAt = new Date();
     }
 
-    public Pet(String name, String species, String breed, int age, String gender, String description, String status, Date createdAt, Date updatedAt) {
+
+    public Pet(String name, String species, String breed, int age, String gender, String description, String status) {
         this.name = name;
         this.species = species;
         this.breed = breed;
@@ -51,8 +43,6 @@ public class Pet {
         this.gender = gender;
         this.description = description;
         this.status = status;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
 
@@ -120,21 +110,6 @@ public class Pet {
         this.status = status;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public String toString() {
@@ -147,8 +122,6 @@ public class Pet {
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

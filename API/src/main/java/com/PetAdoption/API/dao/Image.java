@@ -16,14 +16,11 @@ public class Image {
 
     private String url;
     private String description;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date addedAt;
 
-    public Image(Pet pet, String url, String description, Date addedAt) {
+    public Image(Pet pet, String url, String description) {
         this.pet = pet;
         this.url = url;
         this.description = description;
-        this.addedAt = addedAt;
     }
 
     public Image() {
@@ -61,14 +58,6 @@ public class Image {
         this.description = description;
     }
 
-    public Date getAddedAt() {
-        return addedAt;
-    }
-
-    public void setAddedAt(Date addedAt) {
-        this.addedAt = addedAt;
-    }
-
     @Override
     public String toString() {
         return "Image{" +
@@ -76,7 +65,6 @@ public class Image {
                 ", pet=" + pet +
                 ", url='" + url + '\'' +
                 ", description='" + description + '\'' +
-                ", addedAt=" + addedAt +
                 '}';
     }
 }

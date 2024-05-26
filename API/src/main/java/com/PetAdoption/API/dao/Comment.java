@@ -20,19 +20,14 @@ public class Comment {
 
     private String content;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date submittedAt;
-
-
 
     public Comment() {
     }
 
-    public Comment(Pet pet, Users user, String content, Date submittedAt) {
+    public Comment(Pet pet, Users user, String content) {
         this.pet = pet;
         this.user = user;
         this.content = content;
-        this.submittedAt = submittedAt;
     }
 
     public Long getId() {
@@ -67,13 +62,6 @@ public class Comment {
         this.content = content;
     }
 
-    public Date getSubmittedAt() {
-        return submittedAt;
-    }
-
-    public void setSubmittedAt(Date submittedAt) {
-        this.submittedAt = submittedAt;
-    }
 
     @Override
     public String toString() {
@@ -82,7 +70,6 @@ public class Comment {
                 ", pet=" + pet +
                 ", user=" + user +
                 ", content='" + content + '\'' +
-                ", submittedAt=" + submittedAt +
                 '}';
     }
 }

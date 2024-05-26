@@ -8,12 +8,11 @@ import java.util.List;
 @Entity
 public class Users {
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany
     private List<AdoptionApplication> adoptionApplications;
-
 
     private String username;
     private String email;
@@ -21,10 +20,7 @@ public class Users {
     private String lastName;
     private String phone;
     private String address;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
+
 
     public Users() {
     }
@@ -52,7 +48,6 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -94,23 +89,8 @@ public class Users {
         this.adoptionApplications = adoptionApplications;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Users(Long id, List<AdoptionApplication> adoptionApplications, String username, String email, String firstName, String lastName, String phone, String address, Date createdAt, Date updatedAt) {
+    public Users(Long id, List<AdoptionApplication> adoptionApplications, String username, String email, String firstName, String lastName, String phone, String address) {
         this.id = id;
         this.adoptionApplications = adoptionApplications;
         this.username = username;
@@ -119,8 +99,6 @@ public class Users {
         this.lastName = lastName;
         this.phone = phone;
         this.address = address;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     @Override
@@ -133,8 +111,6 @@ public class Users {
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", createdAt=" + createdAt+
-                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

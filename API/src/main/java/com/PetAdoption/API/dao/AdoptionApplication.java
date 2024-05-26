@@ -13,16 +13,13 @@ public class AdoptionApplication {
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users user;
 
     private String status;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
 
     public AdoptionApplication() {
     }
@@ -31,8 +28,6 @@ public class AdoptionApplication {
         this.pet = pet;
         this.user = user;
         this.status = status;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Long getId() {
@@ -67,21 +62,6 @@ public class AdoptionApplication {
         this.status = status;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public String toString() {
@@ -90,8 +70,6 @@ public class AdoptionApplication {
                 ", pet=" + pet +
                 ", user=" + user +
                 ", status='" + status + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
