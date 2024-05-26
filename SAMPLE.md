@@ -25,8 +25,7 @@ This API enables users to manage pet adoption activities, facilitating the proce
   }
 Responses:
 201 Created: Returns the created pet record.
-json
-Copy code
+  ```json
 {
     "id": 3,
     "name": "Your Pet's Name",
@@ -37,36 +36,35 @@ Copy code
     "description": "Description of the Pet",
     "status": "Status of the Pet"
 }
-2. List all Pets
-HTTP Method: GET
-Endpoint: /pet
-Description: Retrieve a list of all available pets for adoption.
-Responses:
-200 OK:
-json
-Copy code
-[
-    {
-        "id": 1,
-        "name": "Bani",
-        "species": "Species of the Pet",
-        "breed": "Breed of the Pet",
-        "age": 2,
-        "gender": "Gender of the Pet",
-        "description": "Description of the Pet",
-        "status": "Status of the Pet"
-    },
-    {
-        "id": 2,
-        "name": "DARKO",
-        "species": "Species of the Pet",
-        "breed": "Breed of the Pet",
-        "age": 2,
-        "gender": "Gender of the Pet",
-        "description": "Description of the Pet",
-        "status": "Status of the Pet"
-    }
-]
+
+### 2. List all Pets
+
+- **HTTP Method:** `GET`
+- **Endpoint:** `/pet`
+- **Description:** Retrieve a list of all available pets for adoption.
+- **Responses:**
+
+    - **200 OK:**
+        ```json
+        [
+            {
+                "id": 1,
+                "name": "Bani",
+                "species": "Species of the Pet",
+                "breed": "Breed of the Pet",
+                "age": 2,
+                "gender": "Gender of the Pet",
+                "description": "Description of the Pet",
+                "status": "Status of the Pet"
+            },
+            {
+                "id": 2,
+                "name": "DARKO",
+                "species": "Species of the Pet",
+                "breed": "Breed of the Pet",
+                "age": 2,
+                "gender": "Gender
+
 3. Get Pet by ID
 HTTP Method: GET
 Endpoint: /pet/{id}
