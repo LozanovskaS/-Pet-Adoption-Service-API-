@@ -49,8 +49,5 @@ public class PetService {
         return petRepository.findPetByStatus(status);
     }
 
-    public List<Pet> findPetByMaxAge(int maxAge){
-        return petRepository.findPetByMaxAge(maxAge);
-    }
 
 }

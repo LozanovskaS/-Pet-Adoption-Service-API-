@@ -1,7 +1,6 @@
 package com.PetAdoption.API.rest;
 
 import com.PetAdoption.API.dao.Image;
-import com.PetAdoption.API.dao.Pet;
 import com.PetAdoption.API.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +27,7 @@ public class ImageController {
 
     @PutMapping
     Image updateImage(@RequestBody Image image){
-        return imageService.createImage(image);
+        return imageService.updateImage(image);
     }
 
     @GetMapping("/{id}")
@@ -38,6 +37,16 @@ public class ImageController {
 
     @DeleteMapping("/{id}")
     void deleteImage(@PathVariable("id") Long id){
-       imageService.deleteImage(id);
+        imageService.deleteImage(id);
+    }
+
+    @GetMapping("/pet/{petId}")
+    List<Image> findByPetId(@PathVariable("petId") Long petId) {
+        return imageService.findByPetId(petId);
+    }
+
+    @GetMapping("/url/{url}")
+    List<Image> findByUrl(@PathVariable("url") String url) {
+        return imageService.findByUrl(url);
     }
 }

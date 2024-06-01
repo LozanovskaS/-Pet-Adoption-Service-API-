@@ -15,29 +15,43 @@ public class PetController {
     PetService petService;
 
     @GetMapping
-    List<Pet> getAllPets(){
+    List<Pet> getAllPets() {
         return petService.getAllPets();
     }
 
     @PostMapping
-    Pet createPet(@RequestBody Pet pet){
+    Pet createPet(@RequestBody Pet pet) {
         return petService.createPet(pet);
     }
 
     @PutMapping
-    Pet updatePet(@RequestBody Pet pet){
+    Pet updatePet(@RequestBody Pet pet) {
         return petService.updatePet(pet);
     }
 
     @GetMapping("/{id}")
-    Optional<Pet> getPet(@PathVariable("id") Long id){
+    Optional<Pet> getPet(@PathVariable("id") Long id) {
         return petService.getPetById(id);
     }
 
     @DeleteMapping("/{id}")
-    void deletePet(@PathVariable("id") Long id){
+    void deletePet(@PathVariable("id") Long id) {
         petService.deletePetById(id);
     }
 
+    @GetMapping("/species/{species}")
+    List<Pet> findPetBySpecies(@PathVariable("species") String species) {
+        return petService.findPetBySpecies(species);
+    }
+
+    @GetMapping("/breed/{breed}")
+    List<Pet> findPetByBreed(@PathVariable("breed") String breed) {
+        return petService.findPetByBreed(breed);
+    }
+
+    @GetMapping("/status/{status}")
+    List<Pet> findPetByStatus(@PathVariable("status") String status) {
+        return petService.findPetByStatus(status);
+    }
 
 }

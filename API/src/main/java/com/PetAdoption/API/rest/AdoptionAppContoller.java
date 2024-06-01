@@ -1,7 +1,6 @@
 package com.PetAdoption.API.rest;
 
 import com.PetAdoption.API.dao.AdoptionApplication;
-import com.PetAdoption.API.dao.Pet;
 import com.PetAdoption.API.service.AdoptionApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,5 +38,15 @@ public class AdoptionAppContoller {
     @DeleteMapping("/{id}")
     void deleteAdoptionApp(@PathVariable("id") Long id){
         adoptionApplicationService.deleteAdoptionApp(id);
+    }
+
+    @GetMapping("/status/{status}")
+    List<AdoptionApplication> findByStatus(@PathVariable("status") String status){
+        return adoptionApplicationService.findByStatus(status);
+    }
+
+    @GetMapping("/pet/{petId}")
+    List<AdoptionApplication> findByPetId(@PathVariable("petId") Long petId){
+        return adoptionApplicationService.findByPetId(petId);
     }
 }

@@ -49,11 +49,11 @@ public class UsersService {
         return usersRepository.findByPhone(phone);
     }
 
-    List<Users> findByLastName(String lastName){
+    public List<Users> findByLastName(String lastName){
         return usersRepository.findByLastName(lastName);
     }
 
-    List<Users> findByAddress(String address){
+    public List<Users> findByAddress(String address){
         return usersRepository.findByAddress(address);
     }
 

@@ -11,6 +11,4 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
     List<Pet> findPetByBreed(String breed);
     List<Pet> findPetByStatus(String status);
 
-    @Query("select p from Pet p where p.age <= :maxAge")
-    List<Pet> findPetByMaxAge(@Param("maxAge") int maxAge);
 }

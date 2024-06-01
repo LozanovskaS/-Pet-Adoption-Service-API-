@@ -1,16 +1,13 @@
 package com.PetAdoption.API.dao;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.*;
 
-import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

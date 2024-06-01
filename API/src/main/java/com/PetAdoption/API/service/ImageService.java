@@ -37,11 +37,11 @@ public class ImageService {
         imageRepository.deleteById(id);
     }
 
-    List<Image> findByPetId(Long petId){
+    public List<Image> findByPetId(Long petId){
         return imageRepository.findByPetId(petId);
     }
 
-    List<Image> findByUrl(String url){
+    public List<Image> findByUrl(String url){
         return imageRepository.findByUrl(url);
     }
 

@@ -37,7 +37,31 @@ public class UsersController {
 
     @DeleteMapping("/{id}")
     void deleteUser(@PathVariable("id") Long id){
-       usersService.deleteUserById(id);
+        usersService.deleteUserById(id);
+    }
+
+    @GetMapping("/username/{username}")
+    List<Users> findByUsername(@PathVariable("username") String username){
+        return usersService.findByUsername(username);
+    }
+
+    @GetMapping("/email/{email}")
+    List<Users> findByEmail(@PathVariable("email") String email){
+        return usersService.findByEmail(email);
+    }
+
+    @GetMapping("/phone/{phone}")
+    List<Users> findByPhone(@PathVariable("phone") String phone){
+        return usersService.findByPhone(phone);
+    }
+
+    @GetMapping("/lastName/{lastName}")
+    List<Users> findByLastName(@PathVariable("lastName") String lastName){
+        return usersService.findByLastName(lastName);
+    }
+
+    @GetMapping("/address/{address}")
+    List<Users> findByAddress(@PathVariable("address") String address){
+        return usersService.findByAddress(address);
     }
 }
-

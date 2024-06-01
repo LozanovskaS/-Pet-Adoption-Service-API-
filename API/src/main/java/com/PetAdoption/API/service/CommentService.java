@@ -37,7 +37,7 @@ public class CommentService {
         commentRepository.deleteById(id);
     }
 
-    List<Comment> findByPetId(Long petId){
+    public List<Comment> findByPetId(Long petId){
         return commentRepository.findByPetId(petId);
     }
 }
