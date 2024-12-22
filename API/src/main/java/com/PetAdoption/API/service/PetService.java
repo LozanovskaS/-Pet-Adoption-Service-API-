@@ -1,5 +1,6 @@
 package com.PetAdoption.API.service;
 
+import com.PetAdoption.API.dao.Image;
 import com.PetAdoption.API.dao.Pet;
 import com.PetAdoption.API.dao.PetRepository;
 import jakarta.transaction.Transactional;
@@ -36,7 +37,6 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
-
     public List<Pet> findPetBySpecies(String species){
         return petRepository.findPetBySpecies(species);
     }
@@ -49,5 +49,12 @@ public class PetService {
         return petRepository.findPetByStatus(status);
     }
 
-
+    @Transactional
+    public Pet savePetWithImages(Pet pet, List<Image> images) {
+        for (Image image : images) {
+            pet.addImage(image);
+        }
+        return petRepository.save(pet);
+    }
+    
 }

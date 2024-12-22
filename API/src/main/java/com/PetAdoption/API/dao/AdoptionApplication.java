@@ -24,7 +24,7 @@ public class AdoptionApplication {
     public AdoptionApplication() {
     }
 
-    public AdoptionApplication(Pet pet, Users user, String status, Date createdAt, Date updatedAt) {
+    public AdoptionApplication(Pet pet, Users user, String status) {
         this.pet = pet;
         this.user = user;
         this.status = status;

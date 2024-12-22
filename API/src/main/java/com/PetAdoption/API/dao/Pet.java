@@ -2,6 +2,7 @@ package com.PetAdoption.API.dao;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,8 +23,8 @@ public class Pet {
     @OneToMany
     private List<AdoptionApplication> adoptionApplications;
 
-    @OneToMany
-    private List<Image> images;
+    @OneToMany(mappedBy = "pet", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Image> images = new ArrayList<>();
 
     @OneToMany
     private List<Comment> comments;
@@ -31,6 +32,15 @@ public class Pet {
     public Pet() {
     }
 
+    public void addImage(Image image) {
+        images.add(image);
+        image.setPet(this);
+    }
+
+    public void removeImage(Image image) {
+        images.remove(image);
+        image.setPet(null);
+    }
 
     public Pet(String name, String species, String breed, int age, String gender, String description, String status) {
         this.name = name;
@@ -106,7 +116,12 @@ public class Pet {
     public void setStatus(String status) {
         this.status = status;
     }
-
+    public List<Image> getImages() {
+        return images;
+    }
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 
     @Override
     public String toString() {
