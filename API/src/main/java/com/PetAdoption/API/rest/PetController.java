@@ -25,8 +25,8 @@ public class PetController {
         return petService.createPet(pet);
     }
 
-    @PutMapping
-    Pet updatePet(@RequestBody Pet pet) {
+    @PutMapping("/{id}")
+    Pet updatePet(@PathVariable("id") Long id, @RequestBody Pet pet) {
         return petService.updatePet(pet);
     }
 
